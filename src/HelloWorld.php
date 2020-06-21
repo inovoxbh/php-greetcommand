@@ -6,19 +6,20 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class GreetCommand extends Command
+class HelloWorld extends Command
 {
     protected function configure()
     {
         $this
-            ->setName('greet')
-            ->setDescription('Shows a greet message with a given name.')
-            ->addArgument('name');
+            ->setName('hello')
+            ->setDescription('Shows a HelloWorld default message')
+            ->addArgument('name')
+            ->addArgument('givenName');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $output->writeln('Olá, seja bem vindo ' . $input->getArgument('name') . '.');
+        $output->writeln('Hello world ' . $input->getArgument('givenName') . ', ' . $input->getArgument('name') . '.');
         return 0;
     }
 }
